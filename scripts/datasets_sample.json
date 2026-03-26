@@ -1,0 +1,102 @@
+[
+  {
+    "name": "NWPU-RESISC45",
+    "paper_url": "https://arxiv.org/abs/1703.00121",
+    "download_url": "https://www.modelscope.cn/datasets/timm/resisc45"
+  },
+  {
+    "name": "DOTA v2.0",
+    "paper_url": "https://arxiv.org/abs/2102.12219",
+    "download_url": "https://captain-whu.github.io/DOTA/dataset.html"
+  },
+  {
+    "name": "DIOR",
+    "paper_url": "https://arxiv.org/abs/1909.00133",
+    "download_url": "https://gcheng-nwpu.github.io/"
+  },
+  {
+    "name": "MLRSNet",
+    "paper_url": "https://arxiv.org/abs/2010.00243",
+    "download_url": "https://github.com/cugbrs/MLRSNet.git"
+  },
+  {
+    "name": "FAIR1M",
+    "paper_url": "https://arxiv.org/abs/2103.05569",
+    "download_url": "https://www.noda.ac.cn/datasharing/datasetDetails/666fe818d67b985a5113eb26"
+  },
+  {
+    "name": "VDD",
+    "paper_url": "https://arxiv.org/abs/2305.13608",
+    "download_url": "https://huggingface.co/datasets/RussRobin/VDD"
+  },
+  {
+    "name": "UAVid",
+    "paper_url": "https://arxiv.org/abs/1810.10438",
+    "download_url": "https://opendatalab.com/OpenDataLab/UAVid"
+  },
+  {
+    "name": "AID",
+    "paper_url": "https://arxiv.org/abs/1608.05167",
+    "download_url": "https://captain-whu.github.io/AID/"
+  },
+  {
+    "name": "EuroSAT",
+    "paper_url": "https://ieeexplore.ieee.org/document/8736719",
+    "download_url": "https://github.com/phelber/EuroSAT"
+  },
+  {
+    "name": "BigEarthNet",
+    "paper_url": "https://arxiv.org/abs/2407.03653",
+    "download_url": "https://bigearth.net/"
+  },
+  {
+    "name": "OpenEarthMap",
+    "paper_url": "https://arxiv.org/abs/2404.12803",
+    "download_url": "https://open-earth-map.org/"
+  },
+  {
+    "name": "iSAID",
+    "paper_url": "https://arxiv.org/abs/1904.00369",
+    "download_url": "https://captain-whu.github.io/iSAID/"
+  },
+  {
+    "name": "Potsdam",
+    "paper_url": "",
+    "download_url": "https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/2d-sem-label-potsdam.aspx"
+  },
+  {
+    "name": "Vaihingen",
+    "paper_url": "",
+    "download_url": "https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/2d-sem-label-vaihingen.aspx"
+  },
+  {
+    "name": "MAR20",
+    "paper_url": "https://www.ygxb.ac.cn/en/article/doi/10.11834/jrs.20222139",
+    "download_url": "https://gcheng-nwpu.github.io/#Datasets"
+  },
+  {
+    "name": "LEVIR-CD",
+    "paper_url": "https://ieeexplore.ieee.org/document/9112775",
+    "download_url": "https://justchenhao.github.io/LEVIR/"
+  },
+  {
+    "name": "WHU-CD",
+    "paper_url": "https://ieeexplore.ieee.org/document/8433723",
+    "download_url": "http://gpcv.whu.edu.cn/data/building_dataset.html"
+  },
+  {
+    "name": "HRSC2016",
+    "paper_url": "https://ieeexplore.ieee.org/document/7480356",
+    "download_url": "https://www.kaggle.com/datasets/guofeng/hrsc2016"
+  },
+  {
+    "name": "SSDD",
+    "paper_url": "https://ieeexplore.ieee.org/document/8167298",
+    "download_url": "https://github.com/TianwenZhang0825/Official-SSDD"
+  },
+  {
+    "name": "UDD",
+    "paper_url": "https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30",
+    "download_url": "https://github.com/MarcWong/UDD"
+  }
+]

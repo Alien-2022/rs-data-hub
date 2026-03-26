@@ -1,0 +1,215 @@
+# 链接验证报告
+
+**验证时间**: 2026-03-27 02:12:58
+**总计**: 38 个链接
+
+## 验证统计
+
+| 状态 | 数量 | 占比 |
+|------|------|------|
+| ✅ 有效 | 31 | 81.6% |
+| ⚠️ 警告 | 0 | 0.0% |
+| ❌ 失效 | 7 | 18.4% |
+
+## 详细结果
+
+### ✅ 有效 (31个)
+
+- **NWPU-RESISC45 - 下载**
+  - 链接：https://www.modelscope.cn/datasets/timm/resisc45
+  - HTTP 状态码：200
+  - 响应时间：0.41s
+
+- **DOTA v2.0 - 论文**
+  - 链接：https://www.noda.ac.cn/datasharing/datasetDetails/666fe818d67b985a5113eb26
+  - HTTP 状态码：200
+  - 响应时间：0.434s
+
+- **DOTA v2.0 - 下载**
+  - 链接：https://arxiv.org/abs/1909.00133
+  - HTTP 状态码：200
+  - 响应时间：0.881s
+
+- **DIOR - 论文**
+  - 链接：https://opendatalab.com/OpenDataLab/UAVid
+  - HTTP 状态码：200
+  - 响应时间：0.162s
+
+- **DIOR - 下载**
+  - 链接：https://arxiv.org/abs/1608.05167
+  - HTTP 状态码：200
+  - 响应时间：0.183s
+
+- **MLRSNet - 下载**
+  - 链接：https://github.com/cugbrs/MLRSNet.git
+  - HTTP 状态码：200
+  - 响应时间：1.702s
+
+- **FAIR1M - 论文**
+  - 链接：https://ieeexplore.ieee.org/document/8736719
+  - HTTP 状态码：200
+  - 响应时间：0.731s
+
+- **FAIR1M - 下载**
+  - 链接：https://github.com/phelber/EuroSAT
+  - HTTP 状态码：200
+  - 响应时间：0.791s
+
+- **VDD - 论文**
+  - 链接：https://arxiv.org/abs/2102.12219
+  - HTTP 状态码：200
+  - 响应时间：3.164s
+
+- **VDD - 下载**
+  - 链接：https://arxiv.org/abs/2404.12803
+  - HTTP 状态码：200
+  - 响应时间：0.342s
+
+- **UAVid - 论文**
+  - 链接：https://bigearth.net/
+  - HTTP 状态码：200
+  - 响应时间：1.085s
+
+- **UAVid - 下载**
+  - 链接：https://arxiv.org/abs/1904.00369
+  - HTTP 状态码：200
+  - 响应时间：0.188s
+
+- **AID - 下载**
+  - 链接：https://open-earth-map.org/
+  - HTTP 状态码：200
+  - 响应时间：2.04s
+
+- **EuroSAT - 论文**
+  - 链接：https://arxiv.org/abs/1810.10438
+  - HTTP 状态码：200
+  - 响应时间：5.364s
+
+- **EuroSAT - 下载**
+  - 链接：https://arxiv.org/abs/2407.03653
+  - HTTP 状态码：200
+  - 响应时间：4.086s
+
+- **BigEarthNet - 论文**
+  - 链接：https://www.ygxb.ac.cn/en/article/doi/10.11834/jrs.20222139
+  - HTTP 状态码：200
+  - 响应时间：0.475s
+
+- **OpenEarthMap - 论文**
+  - 链接：https://ieeexplore.ieee.org/document/9112775
+  - HTTP 状态码：200
+  - 响应时间：0.309s
+
+- **OpenEarthMap - 下载**
+  - 链接：https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/2d-sem-label-potsdam.aspx
+  - HTTP 状态码：200
+  - 响应时间：2.629s
+
+- **iSAID - 论文**
+  - 链接：http://gpcv.whu.edu.cn/data/building_dataset.html
+  - HTTP 状态码：200
+  - 响应时间：0.095s
+
+- **Potsdam - 下载**
+  - 链接：https://arxiv.org/abs/2103.05569
+  - HTTP 状态码：200
+  - 响应时间：6.838s
+
+- **Vaihingen - 下载**
+  - 链接：https://ieeexplore.ieee.org/document/8433723
+  - HTTP 状态码：200
+  - 响应时间：0.302s
+
+- **MAR20 - 论文**
+  - 链接：https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/2d-sem-label-vaihingen.aspx
+  - HTTP 状态码：200
+  - 响应时间：1.577s
+
+- **MAR20 - 下载**
+  - 链接：https://ieeexplore.ieee.org/document/7480356
+  - HTTP 状态码：200
+  - 响应时间：0.652s
+
+- **LEVIR-CD - 论文**
+  - 链接：https://ieeexplore.ieee.org/document/8167298
+  - HTTP 状态码：200
+  - 响应时间：0.54s
+
+- **LEVIR-CD - 下载**
+  - 链接：https://github.com/TianwenZhang0825/Official-SSDD
+  - HTTP 状态码：200
+  - 响应时间：0.827s
+
+- **WHU-CD - 下载**
+  - 链接：https://github.com/MarcWong/UDD
+  - HTTP 状态码：200
+  - 响应时间：1.043s
+
+- **HRSC2016 - 论文**
+  - 链接：https://gcheng-nwpu.github.io/
+  - HTTP 状态码：200
+  - 响应时间：9.411s
+
+- **HRSC2016 - 下载**
+  - 链接：https://arxiv.org/abs/1703.00121
+  - HTTP 状态码：200
+  - 响应时间：9.415s
+
+- **SSDD - 论文**
+  - 链接：https://arxiv.org/abs/2010.00243
+  - HTTP 状态码：200
+  - 响应时间：9.45s
+
+- **SSDD - 下载**
+  - 链接：https://arxiv.org/abs/2305.13608
+  - HTTP 状态码：200
+  - 响应时间：9.612s
+
+- **UDD - 论文**
+  - 链接：https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30
+  - HTTP 状态码：200
+  - 响应时间：2.892s
+
+### ❌ 失效 (7个)
+
+- **NWPU-RESISC45 - 论文**
+  - 链接：https://captain-whu.github.io/DOTA/dataset.html
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：SSL 证书错误
+
+- **MLRSNet - 论文**
+  - 链接：https://captain-whu.github.io/AID/
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：SSL 证书错误
+
+- **AID - 论文**
+  - 链接：https://captain-whu.github.io/iSAID/
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：SSL 证书错误
+
+- **BigEarthNet - 下载**
+  - 链接：https://gcheng-nwpu.github.io/#Datasets
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：SSL 证书错误
+
+- **iSAID - 下载**
+  - 链接：https://justchenhao.github.io/LEVIR/
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：SSL 证书错误
+
+- **WHU-CD - 论文**
+  - 链接：https://www.kaggle.com/datasets/guofeng/hrsc2016
+  - HTTP 状态码：404
+  - 响应时间：1.129s
+  - 错误：404 Client Error
+
+- **UDD - 下载**
+  - 链接：https://huggingface.co/datasets/RussRobin/VDD
+  - HTTP 状态码：None
+  - 响应时间：Nones
+  - 错误：请求超时
