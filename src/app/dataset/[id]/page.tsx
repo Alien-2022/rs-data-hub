@@ -30,7 +30,7 @@ interface Dataset {
 
 export default function DatasetDetailPage() {
   const params = useParams();
-  const router = useRouter();
+  useRouter(); // 保留用于未来功能
   const [dataset, setDataset] = useState<Dataset | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
