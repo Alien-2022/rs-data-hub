@@ -25,7 +25,7 @@ export default function Home() {
                 搜索
               </Link>
               <a
-                href="https://github.com"
+                href="https://github.com/Alien-2022/rs-data-hub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition font-medium"
