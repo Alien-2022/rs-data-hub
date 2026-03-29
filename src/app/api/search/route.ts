@@ -2,6 +2,9 @@
 import { createServerClient } from '@/../lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 
+// 显式声明为动态路由，避免构建时警告
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const supabase = createServerClient();
@@ -14,15 +17,16 @@ export async function GET(request: NextRequest) {
     const minImages = searchParams.get('min_images');
     const maxImages = searchParams.get('max_images');
     const publishYear = searchParams.get('year');
-    const page = parseInt(searchParams.get('page') || '1');
-    const pageSize = parseInt(searchParams.get('page_size') || '10');
+    const page = Math.max(1, parseInt(searchParams.get('page') || '1'));
+    // 限制每页数量：默认 10，最大 100，防止滥用
+    const pageSize = Math.min(100, Math.max(1, parseInt(searchParams.get('page_size') || '10')));
     const sortBy = searchParams.get('sort_by') || 'created_at';
     const sortOrder = searchParams.get('sort_order') || 'desc';
 
-    // 构建查询
+    // 构建查询 - 使用 estimated 计数提升性能（比 exact 快 10-100 倍）
     let queryBuilder = supabase
       .from('datasets')
-      .select('*', { count: 'exact' });
+      .select('*', { count: 'estimated' });
 
     // 全文搜索（名称和描述）
     if (query) {

@@ -2,6 +2,9 @@
 import { createServerClient } from '@/../lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 
+// 显式声明为动态路由，避免构建时警告
+export const dynamic = 'force-dynamic';
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }

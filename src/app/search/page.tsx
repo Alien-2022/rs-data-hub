@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useDatasets, usePrefetchNextPage, useFilterOptions } from '@/hooks/useDatasets';
 
 interface Dataset {
   id: string;
@@ -16,75 +17,41 @@ interface Dataset {
   download_url: string;
 }
 
-interface FilterOptions {
-  taskTypes: string[];
-  modalities: string[];
-  years: number[];
-}
-
 export default function SearchPage() {
-  // 状态
-  const [datasets, setDatasets] = useState<Dataset[]>([]);
-  const [filterOptions, setFilterOptions] = useState<FilterOptions>({
-    taskTypes: [],
-    modalities: [],
-    years: []
-  });
-  const [loading, setLoading] = useState(true);
-  const [total, setTotal] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-  
   // 筛选状态
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTaskTypes, setSelectedTaskTypes] = useState<string[]>([]);
   const [selectedModalities, setSelectedModalities] = useState<string[]>([]);
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   
-  // 加载筛选选项
-  useEffect(() => {
-    async function loadFilters() {
-      try {
-        const res = await fetch('/api/filters');
-        const data = await res.json();
-        setFilterOptions(data);
-      } catch (error) {
-        console.error('Failed to load filters:', error);
-      }
-    }
-    loadFilters();
-  }, []);
+  // 构建筛选对象
+  const filters = {
+    query: searchQuery,
+    taskTypes: selectedTaskTypes,
+    modalities: selectedModalities,
+    year: selectedYear,
+  };
   
-  // 搜索数据集
-  useEffect(() => {
-    async function searchDatasets() {
-      setLoading(true);
-      
-      try {
-        const params = new URLSearchParams();
-        params.set('page', currentPage.toString());
-        params.set('page_size', '10');
-        
-        if (searchQuery) params.set('q', searchQuery);
-        selectedTaskTypes.forEach(type => params.append('task_type', type));
-        selectedModalities.forEach(mod => params.append('modality', mod));
-        if (selectedYear) params.set('year', selectedYear);
-        
-        const res = await fetch(`/api/search?${params}`);
-        const data = await res.json();
-        
-        setDatasets(data.data);
-        setTotal(data.pagination.total);
-        setTotalPages(data.pagination.totalPages);
-      } catch (error) {
-        console.error('Search failed:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    searchDatasets();
-  }, [searchQuery, selectedTaskTypes, selectedModalities, selectedYear, currentPage]);
+  // 使用 React Query 获取数据
+  const {
+    datasets,
+    pagination,
+    isFetching,
+    isError,
+  } = useDatasets(currentPage, pageSize, filters);
+  
+  // 预加载下一页
+  usePrefetchNextPage(
+    currentPage,
+    pageSize,
+    filters,
+    pagination?.totalPages || 0
+  );
+  
+  // 获取筛选选项
+  const { filterOptions, isLoading: filtersLoading } = useFilterOptions();
   
   // 处理搜索提交
   const handleSearch = (e: React.FormEvent) => {
@@ -99,6 +66,13 @@ export default function SearchPage() {
     setSelectedModalities([]);
     setSelectedYear('');
     setCurrentPage(1);
+  };
+  
+  // 页码改变时重置到第一页
+  const handlePageChange = (newPage: number) => {
+    if (pagination && newPage >= 1 && newPage <= pagination.totalPages) {
+      setCurrentPage(newPage);
+    }
   };
   
   return (
@@ -138,81 +112,140 @@ export default function SearchPage() {
             <div className="bg-white rounded-lg shadow p-4 sticky top-20">
               <h2 className="text-lg font-semibold mb-4">筛选条件</h2>
               
-              {/* 任务类型 */}
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">任务类型</h3>
-                <div className="space-y-2">
-                  {filterOptions.taskTypes.map((type) => (
-                    <label key={type} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={selectedTaskTypes.includes(type)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            setSelectedTaskTypes([...selectedTaskTypes, type]);
-                          } else {
-                            setSelectedTaskTypes(selectedTaskTypes.filter(t => t !== type));
-                          }
-                        }}
-                        className="mr-2 rounded"
-                      />
-                      <span className="text-sm text-gray-600">{type}</span>
-                    </label>
-                  ))}
+              {filtersLoading ? (
+                <div className="text-center py-4 text-gray-500">
+                  加载中...
                 </div>
-              </div>
-              
-              {/* 数据模态 */}
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">数据模态</h3>
-                <div className="space-y-2">
-                  {filterOptions.modalities.map((mod) => (
-                    <label key={mod} className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={selectedModalities.includes(mod)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            setSelectedModalities([...selectedModalities, mod]);
-                          } else {
-                            setSelectedModalities(selectedModalities.filter(m => m !== mod));
-                          }
-                        }}
-                        className="mr-2 rounded"
-                      />
-                      <span className="text-sm text-gray-600">{mod}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-              
-              {/* 发布年份 */}
-              <div className="mb-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-2">发布年份</h3>
-                <select
-                  value={selectedYear}
-                  onChange={(e) => setSelectedYear(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">全部年份</option>
-                  {filterOptions.years.map((year) => (
-                    <option key={year} value={year}>{year}</option>
-                  ))}
-                </select>
-              </div>
+              ) : (
+                <>
+                  {/* 任务类型 */}
+                  <div className="mb-6">
+                    <h3 className="text-sm font-medium text-gray-700 mb-2">任务类型</h3>
+                    <div className="space-y-2">
+                      {filterOptions.taskTypes.map((type: string) => (
+                        <label key={type} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={selectedTaskTypes.includes(type)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelectedTaskTypes([...selectedTaskTypes, type]);
+                              } else {
+                                setSelectedTaskTypes(selectedTaskTypes.filter(t => t !== type));
+                              }
+                            }}
+                            className="mr-2 rounded"
+                          />
+                          <span className="text-sm text-gray-600">{type}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* 数据模态 */}
+                  <div className="mb-6">
+                    <h3 className="text-sm font-medium text-gray-700 mb-2">数据模态</h3>
+                    <div className="space-y-2">
+                      {filterOptions.modalities.map((mod: string) => (
+                        <label key={mod} className="flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={selectedModalities.includes(mod)}
+                            onChange={(e) => {
+                              if (e.target.checked) {
+                                setSelectedModalities([...selectedModalities, mod]);
+                              } else {
+                                setSelectedModalities(selectedModalities.filter(m => m !== mod));
+                              }
+                            }}
+                            className="mr-2 rounded"
+                          />
+                          <span className="text-sm text-gray-600">{mod}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* 发布年份 */}
+                  <div className="mb-6">
+                    <h3 className="text-sm font-medium text-gray-700 mb-2">发布年份</h3>
+                    <select
+                      value={selectedYear}
+                      onChange={(e) => setSelectedYear(e.target.value)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="">全部年份</option>
+                      {filterOptions.years.map((year: number) => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
+                </>
+              )}
             </div>
           </aside>
           
           {/* 右侧结果列表 */}
           <main className="flex-1">
-            <div className="mb-4 text-sm text-gray-600">
-              找到 <span className="font-semibold text-blue-600">{total}</span> 个数据集
+            <div className="mb-4 flex justify-between items-center">
+              <div className="text-sm text-gray-600">
+                {pagination ? (
+                  <>
+                    找到 <span className="font-semibold text-blue-600">{pagination.total}</span> 个数据集
+                  </>
+                ) : (
+                  '加载中...'
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <label className="text-sm text-gray-600">每页显示：</label>
+                <select
+                  value={pageSize}
+                  onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                    setCurrentPage(1);
+                  }}
+                  className="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                >
+                  <option value={10}>10 条</option>
+                  <option value={25}>25 条</option>
+                  <option value={50}>50 条</option>
+                  <option value={100}>100 条</option>
+                </select>
+              </div>
             </div>
             
-            {loading ? (
-              <div className="text-center py-12">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                <p className="mt-4 text-gray-600">加载中...</p>
+            {isError ? (
+              <div className="text-center py-12 bg-white rounded-lg shadow">
+                <p className="text-red-600">加载失败，请刷新页面重试</p>
+              </div>
+            ) : isFetching ? (
+              <div className="space-y-4">
+                {/* 骨架屏占位 */}
+                {[...Array(Math.min(pageSize, 5))].map((_, i) => (
+                  <div key={i} className="bg-white rounded-lg shadow p-6 animate-pulse">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="h-6 bg-gray-200 rounded w-1/3"></div>
+                      <div className="h-6 bg-gray-200 rounded-full w-20"></div>
+                    </div>
+                    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-2/3 mb-4"></div>
+                    <div className="flex gap-2 mb-4">
+                      <div className="h-6 bg-gray-200 rounded-full w-16"></div>
+                      <div className="h-6 bg-gray-200 rounded-full w-20"></div>
+                      <div className="h-6 bg-gray-200 rounded-full w-24"></div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4 mb-4">
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="h-8 bg-gray-200 rounded w-20"></div>
+                      <div className="h-8 bg-gray-200 rounded w-20"></div>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : datasets.length === 0 ? (
               <div className="text-center py-12 bg-white rounded-lg shadow">
@@ -227,22 +260,22 @@ export default function SearchPage() {
             )}
             
             {/* 分页 */}
-            {totalPages > 1 && (
+            {pagination && pagination.totalPages > 1 && (
               <div className="mt-6 flex justify-center gap-2">
                 <button
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                  className="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition"
                 >
                   上一页
                 </button>
                 <span className="px-4 py-2">
-                  第 {currentPage} / {totalPages} 页
+                  第 {currentPage} / {pagination.totalPages} 页
                 </span>
                 <button
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                  className="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === pagination.totalPages}
+                  className="px-4 py-2 border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition"
                 >
                   下一页
                 </button>
@@ -269,7 +302,7 @@ function DatasetCard({ dataset }: { dataset: Dataset }) {
       <p className="text-gray-600 mb-4 line-clamp-2">{dataset.description}</p>
       
       <div className="flex flex-wrap gap-2 mb-4">
-        {dataset.task_types.map((type, i) => (
+        {dataset.task_types.map((type: string, i: number) => (
           <span
             key={i}
             className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
