@@ -1,23 +1,29 @@
 # 遥感数据集搜索引擎 - 文档导航
 
+**项目状态**: ✅ MVP 完成并部署  
+**最后更新**: 2026-03-29
+
+---
+
 ## 📂 文档结构
 
 ```
 docs/
-├── README.md              # 你在这里
-├── architecture.md        # 项目架构与技术栈
-├── setup-guide.md         # 从 0 到 1 搭建指南
-├── workflows/             # 工作流程
-│   ├── data-collection.md     # 数据收集流程
-│   ├── data-verification.md   # 数据验证流程
-│   └── data-entry.md          # 数据录入流程
-└── api.md                 # API 文档
+├── README.md                    # 你在这里
+├── optimization-report.md       # 基础性能优化报告
+├── react-query-optimization.md  # React Query 缓存优化报告
+├── category-standardization.md  # 数据集分类标准化说明
+├── datasets-top20.md            # 20 个经典数据集清单
+└── workflows/
+    └── data-verification.md     # 数据验证流程
 
-knowledge/
-├── README.md              # 知识库导航
-├── verification-experience.md   # 验证经验与技巧
-├── lessons-learned.md     # 踩坑记录与解决方案
-└── best-practices.md      # 最佳实践清单
+scripts/
+├── create_indexes.sql           # 数据库索引脚本
+├── batch_update_datasets.py     # 批量更新脚本
+└── batch_update_report.json     # 更新报告
+
+memory/
+└── YYYY-MM-DD.md                # 每日工作记录
 ```
 
 ---
@@ -25,45 +31,54 @@ knowledge/
 ## 📖 快速索引
 
 ### 新手入门
-1. [搭建指南](./setup-guide.md) - 从 0 到 1 部署项目
-2. [项目架构](./architecture.md) - 了解技术栈和目录结构
-
-### 工作流程
-- [数据收集流程](./workflows/data-collection.md) - 如何发现和整理数据集
+- [20 个经典数据集](./datasets-top20.md) - 已收录的数据集清单
 - [数据验证流程](./workflows/data-verification.md) - 如何验证论文/下载链接
-- [数据录入流程](./workflows/data-entry.md) - 如何将数据录入数据库
 
-### 经验知识库
-- [验证经验](../knowledge/verification-experience.md) - 链接验证技巧与工具
-- [踩坑记录](../knowledge/lessons-learned.md) - 常见问题与解决方案
-- [最佳实践](../knowledge/best-practices.md) - 工作流程优化建议
+### 优化报告
+- [基础性能优化](./optimization-report.md) - 分页、计数、数据库索引
+- [React Query 缓存](./react-query-optimization.md) - 缓存策略 + 预加载
+- [分类标准化](./category-standardization.md) - 任务类型和数据模态分类
+
+### 技术文档
+- [数据库索引脚本](../scripts/create_indexes.sql) - 提升查询性能
+- [批量更新脚本](../scripts/batch_update_datasets.py) - 标准化分类
 
 ---
 
 ## 🚀 快速开始
 
-**第一次参与项目？**
-1. 阅读 [搭建指南](./setup-guide.md)
-2. 阅读 [数据收集流程](./workflows/data-collection.md)
-3. 参考 [验证经验](../knowledge/verification-experience.md)
+**查看数据集？**
+- 访问：https://rs-data-hub.vercel.app
+- 查看：[数据集清单](./datasets-top20.md)
 
-**需要验证数据集链接？**
+**验证新数据集？**
 1. 阅读 [数据验证流程](./workflows/data-verification.md)
-2. 参考 [验证经验](../knowledge/verification-experience.md) 中的技巧
+2. 使用验证脚本批量检查链接
 
 **遇到技术问题？**
-1. 查看 [踩坑记录](../knowledge/lessons-learned.md)
-2. 查看 [常见问题](./setup-guide.md#常见问题)
+- 查看：[踩坑记录](../knowledge/lessons-learned.md)
+- 查看：[优化报告](./optimization-report.md)
 
 ---
 
-## 📝 文档维护
+## 📊 项目统计
 
-- **项目文档** (`docs/`) - 项目架构变更时更新
-- **工作流程** (`docs/workflows/`) - 流程优化时更新
-- **知识库** (`knowledge/`) - 每次任务后总结新经验
+| 指标 | 数量 |
+|------|------|
+| 数据集 | 20 个 |
+| 图像总数 | ~89 万张 |
+| 任务类型 | 5 个（图像分类/目标检测/语义分割/变化检测/实例分割） |
+| 数据模态 | 5 个（光学/SAR/多光谱/高光谱/LiDAR） |
+| 代码行数 | ~12,605 行 |
 
 ---
 
-**最后更新**: 2026-03-27  
+## 🔗 相关链接
+
+- **GitHub**: https://github.com/Alien-2022/rs-data-hub
+- **Gitee**: https://gitee.com/subi2000/rs-data-hub
+- **Vercel**: https://rs-data-hub.vercel.app
+
+---
+
 **维护人**: 小龙虾团队
