@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useDatasets, usePrefetchNextPage, useFilterOptions } from '@/hooks/useDatasets';
 
 interface Dataset {
@@ -77,9 +78,45 @@ export default function SearchPage() {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* 顶部搜索栏 */}
-      <header className="bg-white border-b sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 py-4">
+      {/* 顶部导航栏 */}
+      <nav className="bg-white border-b sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex items-center justify-between mb-3">
+            {/* 左侧：Logo + 返回首页 */}
+            <Link
+              href="/"
+              className="flex items-center gap-2 sm:gap-3 group"
+            >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-105">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hidden sm:block group-hover:opacity-80 transition">
+                遥感数据集搜索引擎
+              </span>
+            </Link>
+            
+            {/* 右侧：导航链接 */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <Link
+                href="/search"
+                className="text-sm sm:text-base text-blue-600 font-medium"
+              >
+                搜索
+              </Link>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition font-medium"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+          
+          {/* 搜索栏 */}
           <form onSubmit={handleSearch} className="flex gap-2">
             <input
               type="text"
@@ -103,7 +140,7 @@ export default function SearchPage() {
             </button>
           </form>
         </div>
-      </header>
+      </nav>
       
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex gap-6">
