@@ -42,8 +42,24 @@ const ALLOWED_ORIGINS = [
 ].filter(Boolean);
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
   const { pathname } = request.nextUrl;
+  
+  // 0️⃣ 强制 HTTPS 重定向（生产环境）
+  if (process.env.NODE_ENV === 'production') {
+    const host = request.headers.get('host') || '';
+    const isVercelPreview = host.includes('vercel.app');
+    const isCustomDomain = !isVercelPreview;
+    
+    // 检查是否是 HTTP 请求（通过 x-forwarded-proto 判断）
+    const proto = request.headers.get('x-forwarded-proto');
+    if (proto === 'http' && isCustomDomain) {
+      const httpsUrl = new URL(request.url);
+      httpsUrl.protocol = 'https:';
+      return NextResponse.redirect(httpsUrl, { status: 308 });
+    }
+  }
+
+  const response = NextResponse.next();
 
   // 1️⃣ 添加安全响应头（所有路由）
   Object.entries(securityHeaders).forEach(([key, value]) => {
