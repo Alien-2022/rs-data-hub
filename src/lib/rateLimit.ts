@@ -31,10 +31,11 @@ export const getRatelimit = (): Ratelimit => {
       token: redisToken,
     });
 
-    // 配置：10 次请求 / 10 秒（滑动窗口）
+    // 配置：20 次请求 / 10 秒（滑动窗口）
+    // 防抖后正常搜索应该远低于此限制
     ratelimit = new Ratelimit({
       redis,
-      limiter: Ratelimit.slidingWindow(10, '10 s'),
+      limiter: Ratelimit.slidingWindow(20, '10 s'),
       analytics: true,
       prefix: 'rs-hub', // 键前缀，避免与其他应用冲突
     });

@@ -75,7 +75,7 @@ export default function Home() {
         </div>
 
         {/* 统计卡片 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
           <div className="card hover:shadow-xl transition-all duration-300">
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
@@ -98,6 +98,18 @@ export default function Home() {
             <p className="text-sm sm:text-base text-gray-900 mb-2">按任务类型筛选</p>
             <p className="text-sm sm:text-base text-gray-600">目标检测、语义分割、</p>
             <p className="text-sm sm:text-base text-gray-600">场景分类等 12 种类型</p>
+          </div>
+
+          <div className="card hover:shadow-xl transition-all duration-300">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
+                🛰️
+              </div>
+              <h3 className="heading-sm text-base sm:text-xl">多源数据</h3>
+            </div>
+            <p className="text-sm sm:text-base text-gray-900 mb-2">按数据模态筛选</p>
+            <p className="text-sm sm:text-base text-gray-600">光学、SAR、多光谱、</p>
+            <p className="text-sm sm:text-base text-gray-600">无人机等 9 种模态</p>
           </div>
 
           <div className="card hover:shadow-xl transition-all duration-300">

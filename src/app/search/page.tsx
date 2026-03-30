@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { useDatasets, usePrefetchNextPage, useFilterOptions } from '@/hooks/useDatasets';
+import { useDatasets, useFilterOptions } from '@/hooks/useDatasets';
 
 interface Dataset {
   id: string;
@@ -42,7 +42,7 @@ export default function SearchPage() {
     debounceTimerRef.current = setTimeout(() => {
       // 最少 3 个字符才开始搜索
       setDebouncedQuery(searchQuery.length >= 3 ? searchQuery : '');
-    }, 500);
+    }, 1000);
     
     // 清理函数
     return () => {
@@ -52,13 +52,13 @@ export default function SearchPage() {
     };
   }, [searchQuery]);
   
-  // 构建筛选对象（使用防抖后的搜索词）
-  const filters = {
+  // 使用 useMemo 稳定 filters 对象引用，防止 React Query 重复触发请求
+  const filters = useMemo(() => ({
     query: debouncedQuery,
     taskTypes: selectedTaskTypes,
     modalities: selectedModalities,
     year: selectedYear,
-  };
+  }), [debouncedQuery, selectedTaskTypes, selectedModalities, selectedYear]);
   
   // 使用 React Query 获取数据
   const {
@@ -67,14 +67,6 @@ export default function SearchPage() {
     isFetching,
     isError,
   } = useDatasets(currentPage, pageSize, filters);
-  
-  // 预加载下一页
-  usePrefetchNextPage(
-    currentPage,
-    pageSize,
-    filters,
-    pagination?.totalPages || 0
-  );
   
   // 获取筛选选项
   const { filterOptions, isLoading: filtersLoading } = useFilterOptions();
