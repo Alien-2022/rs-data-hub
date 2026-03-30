@@ -33,3 +33,6 @@ coverage/
 
 # 导入报告
 import_report_*.json
+
+# AI 工作日志（私人笔记）
+memory/

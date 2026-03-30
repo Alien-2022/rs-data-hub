@@ -9,7 +9,7 @@
 
 ## 🌐 访问地址
 
-- **生产环境**: https://rs-data-hub.vercel.app
+- **生产环境**: https://rs-data-hub-alien-2022s-projects.vercel.app
 - **GitHub**: https://github.com/Alien-2022/rs-data-hub
 - **Gitee**: https://gitee.com/subi2000/rs-data-hub
 
@@ -22,6 +22,7 @@
 - 🎯 **学术导向** - 论文链接、DOI、BibTeX 引用一键导出
 - 🚀 **高性能** - React Query 缓存 + 预加载，翻页响应 <10ms
 - 📱 **响应式** - 完美适配桌面和移动端
+- 🛡️ **企业级安全** - 速率限制/输入验证/RLS/CORS/安全响应头
 
 ---
 
@@ -100,6 +101,17 @@ npm run dev
 ---
 
 ## 📝 最近更新
+
+### 2026-03-30 - 安全优化
+
+- ✅ 速率限制（Upstash Redis，10 次/10 秒）
+- ✅ 输入验证（8 个验证函数，防止 SQL 注入/XSS）
+- ✅ CORS 配置（严格来源白名单）
+- ✅ 安全响应头（7 种防护）
+- ✅ Supabase RLS（行级安全策略）
+- ✅ 错误信息脱敏
+- ✅ 敏感路径保护
+- ✅ 详情页布局优化（学术资源两列显示）
 
 ### 2026-03-29
 

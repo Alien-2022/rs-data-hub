@@ -1,7 +1,7 @@
 # 遥感数据集搜索引擎 - 文档导航
 
-**项目状态**: ✅ MVP 完成并部署  
-**最后更新**: 2026-03-29
+**项目状态**: ✅ MVP 完成并部署 | 🛡️ 安全优化完成  
+**最后更新**: 2026-03-30
 
 ---
 
@@ -14,16 +14,16 @@ docs/
 ├── react-query-optimization.md  # React Query 缓存优化报告
 ├── category-standardization.md  # 数据集分类标准化说明
 ├── datasets-top20.md            # 20 个经典数据集清单
+├── security-optimization.md     # 🛡️ 安全优化综合报告（新增）
+├── security-setup.md            # Upstash Redis 配置指南
 └── workflows/
     └── data-verification.md     # 数据验证流程
 
 scripts/
 ├── create_indexes.sql           # 数据库索引脚本
 ├── batch_update_datasets.py     # 批量更新脚本
+├── setup_rls.sql                # 🛡️ Supabase RLS 配置脚本（新增）
 └── batch_update_report.json     # 更新报告
-
-memory/
-└── YYYY-MM-DD.md                # 每日工作记录
 ```
 
 ---
@@ -38,10 +38,13 @@ memory/
 - [基础性能优化](./optimization-report.md) - 分页、计数、数据库索引
 - [React Query 缓存](./react-query-optimization.md) - 缓存策略 + 预加载
 - [分类标准化](./category-standardization.md) - 任务类型和数据模态分类
+- [🛡️ 安全优化](./security-optimization.md) - 速率限制/输入验证/RLS 等（新增）
 
 ### 技术文档
 - [数据库索引脚本](../scripts/create_indexes.sql) - 提升查询性能
 - [批量更新脚本](../scripts/batch_update_datasets.py) - 标准化分类
+- [🛡️ Supabase RLS 脚本](../scripts/setup_rls.sql) - 行级安全配置（新增）
+- [🛡️ 安全中间件](../src/middleware.ts) - CORS/安全响应头（新增）
 
 ---
 
@@ -77,7 +80,7 @@ memory/
 
 - **GitHub**: https://github.com/Alien-2022/rs-data-hub
 - **Gitee**: https://gitee.com/subi2000/rs-data-hub
-- **Vercel**: https://rs-data-hub.vercel.app
+- **Vercel (生产环境)**: https://rs-data-hub-alien-2022s-projects.vercel.app
 
 ---
 
