@@ -5,7 +5,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* 顶部导航栏 */}
       <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-105">
@@ -38,14 +38,14 @@ export default function Home() {
       </nav>
 
       {/* 主内容区 */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
         {/* Hero 区域 */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-fade-in">
           <h1 className="heading-xl mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 bg-clip-text text-transparent">
             遥感数据集搜索引擎
           </h1>
           <p className="text-base sm:text-xl text-gray-600 mb-3 sm:mb-4 px-2">
-            专注于深度学习遥感影像数据集的整理与推荐
+            专注于深度学习遥感影像数据集的整理
           </p>
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-green-50 border border-green-200 rounded-full text-xs sm:text-sm text-green-700 font-medium mb-6 sm:mb-8">
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
 
         {/* 统计卡片 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
           <div className="card hover:shadow-xl transition-all duration-300 text-center">
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
@@ -83,9 +83,8 @@ export default function Home() {
               </div>
               <h3 className="heading-sm text-base sm:text-xl">数据规模</h3>
             </div>
-            <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">20+</p>
-            <p className="text-sm sm:text-base text-gray-600">经典遥感数据集</p>
-            <p className="text-sm sm:text-base text-gray-600 mt-1">涵盖 89 万 + 图像</p>
+            <p className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">20+</p>
+            <p className="text-sm sm:text-base text-gray-600">经典遥感数据集 · 涵盖 89 万 + 图像</p>
           </div>
 
           <div className="card hover:shadow-xl transition-all duration-300 text-center">
@@ -95,9 +94,7 @@ export default function Home() {
               </div>
               <h3 className="heading-sm text-base sm:text-xl">多维搜索</h3>
             </div>
-            <p className="text-sm sm:text-base text-gray-900 mb-2">按任务类型筛选</p>
-            <p className="text-sm sm:text-base text-gray-600">图像分类、目标检测、</p>
-            <p className="text-sm sm:text-base text-gray-600">语义分割等 5 种类型</p>
+            <p className="text-sm sm:text-base text-gray-600">图像分类、目标检测、语义分割等 5 种类型</p>
           </div>
 
           <div className="card hover:shadow-xl transition-all duration-300 text-center">
@@ -107,9 +104,7 @@ export default function Home() {
               </div>
               <h3 className="heading-sm text-base sm:text-xl">多源数据</h3>
             </div>
-            <p className="text-sm sm:text-base text-gray-900 mb-2">按数据模态筛选</p>
-            <p className="text-sm sm:text-base text-gray-600">光学、SAR、多光谱、</p>
-            <p className="text-sm sm:text-base text-gray-600">高光谱等 5 种模态</p>
+            <p className="text-sm sm:text-base text-gray-600">光学、SAR、多光谱、高光谱等 5 种模态</p>
           </div>
 
           <div className="card hover:shadow-xl transition-all duration-300 text-center">
@@ -119,45 +114,34 @@ export default function Home() {
               </div>
               <h3 className="heading-sm text-base sm:text-xl">学术导向</h3>
             </div>
-            <p className="text-sm sm:text-base text-gray-900 mb-2">完整学术资源</p>
-            <p className="text-sm sm:text-base text-gray-600">论文链接、DOI、</p>
-            <p className="text-sm sm:text-base text-gray-600">BibTeX 引用一键导出</p>
+            <p className="text-sm sm:text-base text-gray-600">论文链接、DOI、BibTeX 引用一键导出</p>
           </div>
         </div>
 
-        {/* 特性说明 */}
+        {/* 快速开始指南 */}
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 md:mb-16">
-          <h2 className="heading-md mb-4 sm:mb-6 text-center text-base sm:text-xl">全面覆盖遥感数据集</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                任务类型覆盖
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['图像分类', '目标检测', '语义分割', '变化检测', '实例分割'].map((type) => (
-                  <span key={type} className="tag tag-primary text-xs sm:text-sm">
-                    {type}
-                  </span>
-                ))}
+          <h2 className="heading-md mb-4 sm:mb-6 text-center text-base sm:text-xl">快速开始</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">🔍</span>
               </div>
+              <h3 className="font-semibold text-gray-900 mb-2">1. 搜索数据集</h3>
+              <p className="text-sm text-gray-600">使用关键词或筛选条件查找所需数据集</p>
             </div>
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                数据模态覆盖
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {['光学', 'SAR', '多光谱', '高光谱', 'LiDAR'].map((modality) => (
-                  <span key={modality} className="tag tag-gray text-xs sm:text-sm">
-                    {modality}
-                  </span>
-                ))}
+            <div className="text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📋</span>
               </div>
+              <h3 className="font-semibold text-gray-900 mb-2">2. 查看详情</h3>
+              <p className="text-sm text-gray-600">查看数据集描述、规模、任务类型等详细信息</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <span className="text-2xl">📥</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">3. 访问资源</h3>
+              <p className="text-sm text-gray-600">一键跳转到数据集下载页面或相关论文</p>
             </div>
           </div>
         </div>
