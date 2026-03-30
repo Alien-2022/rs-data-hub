@@ -157,13 +157,13 @@ export default function SearchPage() {
         <div className="flex gap-4 md:gap-6">
           {/* 左侧筛选栏 - 桌面端显示，移动端绝对定位浮于内容上方 */}
           <aside className={`
-            fixed md:static inset-x-0 top-14 z-40
+            fixed md:static inset-x-0 top-[6.5rem] z-40
             md:w-56 flex-shrink-0
             transform transition-transform duration-300 ease-in-out
             ${showFilters ? 'translate-y-0' : '-translate-y-full md:translate-y-0'}
             ${showFilters ? 'block' : 'hidden md:block'}
           `}>
-            <div className="bg-white rounded-lg shadow-lg md:shadow p-4 m-3 md:m-0 md:sticky md:top-20">
+            <div className="bg-white rounded-lg shadow-lg md:shadow p-4 m-3 md:m-0 md:sticky md:top-20 max-h-[calc(100vh-7rem)] overflow-y-auto">
               <div className="flex items-center justify-between mb-4 md:hidden">
                 <h2 className="text-lg font-semibold">筛选条件</h2>
                 <button
