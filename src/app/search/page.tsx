@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { useDatasets, usePrefetchNextPage, useFilterOptions } from '@/hooks/useDatasets';
 
@@ -21,15 +21,40 @@ interface Dataset {
 export default function SearchPage() {
   // 筛选状态
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState(''); // 防抖后的搜索词
   const [selectedTaskTypes, setSelectedTaskTypes] = useState<string[]>([]);
   const [selectedModalities, setSelectedModalities] = useState<string[]>([]);
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   
-  // 构建筛选对象
+  // 防抖定时器引用
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // 防抖搜索逻辑：停止输入 500ms 后才更新搜索词
+  useEffect(() => {
+    // 清除之前的定时器
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    
+    // 设置新定时器
+    debounceTimerRef.current = setTimeout(() => {
+      // 最少 3 个字符才开始搜索
+      setDebouncedQuery(searchQuery.length >= 3 ? searchQuery : '');
+    }, 500);
+    
+    // 清理函数
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, [searchQuery]);
+  
+  // 构建筛选对象（使用防抖后的搜索词）
   const filters = {
-    query: searchQuery,
+    query: debouncedQuery,
     taskTypes: selectedTaskTypes,
     modalities: selectedModalities,
     year: selectedYear,
@@ -54,20 +79,27 @@ export default function SearchPage() {
   // 获取筛选选项
   const { filterOptions, isLoading: filtersLoading } = useFilterOptions();
   
-  // 处理搜索提交
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
+  // 处理搜索提交（立即搜索，跳过防抖）
+  const handleSearch = useCallback((e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    // 清除防抖定时器
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    // 立即设置搜索词（最少 3 个字符）
+    setDebouncedQuery(searchQuery.length >= 3 ? searchQuery : '');
     setCurrentPage(1);
-  };
+  }, [searchQuery]);
   
   // 重置筛选
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setSearchQuery('');
+    setDebouncedQuery('');
     setSelectedTaskTypes([]);
     setSelectedModalities([]);
     setSelectedYear('');
     setCurrentPage(1);
-  };
+  }, []);
   
   // 页码改变时重置到第一页
   const handlePageChange = (newPage: number) => {
@@ -78,6 +110,15 @@ export default function SearchPage() {
   
   // 移动端筛选面板状态
   const [showFilters, setShowFilters] = useState(false);
+  
+  // 组件卸载时清理定时器
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -125,14 +166,20 @@ export default function SearchPage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="搜索数据集名称或描述..."
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSearch();
+                }
+              }}
+              placeholder="至少 3 个字符开始搜索..."
               className="flex-1 min-w-[120px] sm:min-w-[200px] px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
             <button
               type="submit"
               className="px-4 sm:px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base whitespace-nowrap"
             >
-              搜索
+              {isFetching && debouncedQuery ? '搜索中...' : '搜索'}
             </button>
             <button
               type="button"
