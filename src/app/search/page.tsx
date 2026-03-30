@@ -120,13 +120,13 @@ export default function SearchPage() {
           </div>
           
           {/* 搜索栏 */}
-          <form onSubmit={handleSearch} className="flex gap-2">
+          <form onSubmit={handleSearch} className="flex flex-wrap gap-2">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="搜索数据集名称或描述..."
-              className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+              className="flex-1 min-w-[120px] sm:min-w-[200px] px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
             <button
               type="submit"
@@ -155,12 +155,15 @@ export default function SearchPage() {
         </div>
         
         <div className="flex gap-4 md:gap-6">
-          {/* 左侧筛选栏 - 桌面端显示，移动端折叠 */}
+          {/* 左侧筛选栏 - 桌面端显示，移动端绝对定位浮于内容上方 */}
           <aside className={`
-            w-full md:w-56 flex-shrink-0 
+            fixed md:static inset-x-0 top-14 z-40
+            md:w-56 flex-shrink-0
+            transform transition-transform duration-300 ease-in-out
+            ${showFilters ? 'translate-y-0' : '-translate-y-full md:translate-y-0'}
             ${showFilters ? 'block' : 'hidden md:block'}
           `}>
-            <div className="bg-white rounded-lg shadow p-4 sticky top-20">
+            <div className="bg-white rounded-lg shadow-lg md:shadow p-4 m-3 md:m-0 md:sticky md:top-20">
               <div className="flex items-center justify-between mb-4 md:hidden">
                 <h2 className="text-lg font-semibold">筛选条件</h2>
                 <button
@@ -248,7 +251,14 @@ export default function SearchPage() {
           </aside>
           
           {/* 右侧结果列表 */}
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 relative">
+            {/* 移动端筛选遮罩层 */}
+            {showFilters && (
+              <div 
+                className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+                onClick={() => setShowFilters(false)}
+              />
+            )}
             <div className="mb-4 flex justify-between items-center">
               <div className="text-sm text-gray-600">
                 {pagination ? (

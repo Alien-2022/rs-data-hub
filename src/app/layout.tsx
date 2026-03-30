@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: '遥感数据集搜索引擎',
   description: '专注于深度学习遥感影像数据集的整理与推荐',
   keywords: ['遥感', '数据集', '深度学习', '卫星影像', '搜索'],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
