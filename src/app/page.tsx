@@ -76,8 +76,8 @@ export default function Home() {
 
         {/* 统计卡片 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
-          <div className="card hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="card hover:shadow-xl transition-all duration-300 text-center">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
                 📊
               </div>
@@ -88,8 +88,8 @@ export default function Home() {
             <p className="text-sm sm:text-base text-gray-600 mt-1">涵盖 89 万 + 图像</p>
           </div>
 
-          <div className="card hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="card hover:shadow-xl transition-all duration-300 text-center">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
                 🔍
               </div>
@@ -100,8 +100,8 @@ export default function Home() {
             <p className="text-sm sm:text-base text-gray-600">语义分割等 5 种类型</p>
           </div>
 
-          <div className="card hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="card hover:shadow-xl transition-all duration-300 text-center">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
                 🛰️
               </div>
@@ -112,8 +112,8 @@ export default function Home() {
             <p className="text-sm sm:text-base text-gray-600">高光谱等 5 种模态</p>
           </div>
 
-          <div className="card hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="card hover:shadow-xl transition-all duration-300 text-center">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 justify-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg text-xl sm:text-2xl">
                 📚
               </div>
