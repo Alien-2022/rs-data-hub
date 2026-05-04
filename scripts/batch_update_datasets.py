@@ -181,7 +181,7 @@ def main():
     parser = argparse.ArgumentParser(description='批量更新数据集分类')
     parser.add_argument('--dry-run', action='store_true', help='预览变更，不执行更新')
     parser.add_argument('--execute', action='store_true', help='执行更新')
-    parser.add_argument('--input', type=str, default='datasets_20_standardized.json',
+    parser.add_argument('--input', type=str, default='datasets.json',
                        help='标准化数据 JSON 文件')
     parser.add_argument('--report', type=str, default='batch_update_report.json',
                        help='报告输出文件名')

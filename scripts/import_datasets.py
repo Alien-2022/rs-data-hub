@@ -10,7 +10,7 @@
 
 使用方法:
     # 从 JSON 文件导入
-    python import_datasets.py --input datasets_20.json
+    python import_datasets.py --input datasets.json
     
     # 测试连接
     python import_datasets.py --test-connection

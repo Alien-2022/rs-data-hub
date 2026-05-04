@@ -1,0 +1,49 @@
+[
+  {
+    "name": "NWPU-RESISC45",
+    "description": "西北工业大学发布的大规模遥感图像场景分类基准数据集，包含 45 个场景类别，每类 700 张图像",
+    "task_types": ["图像分类"],
+    "data_modality": "光学",
+    "domain": "CV",
+    "image_count": 31500,
+    "storage_size": "2.5GB",
+    "publisher": "西北工业大学",
+    "publish_year": 2017,
+    "license": "公开学术研究",
+    "download_url": "https://www.modelscope.cn/datasets/timm/resisc45",
+    "paper_url": "https://arxiv.org/abs/1703.00121",
+    "project_url": "https://github.com/etalab/RESISC45",
+    "doi": "10.1109/JSTARS.2017.2696777"
+  },
+  {
+    "name": "SSDD",
+    "description": "船舶目标检测数据集，1160 张图像，SAR 图像",
+    "task_types": ["目标检测"],
+    "data_modality": "SAR",
+    "domain": "CV",
+    "image_count": 1160,
+    "storage_size": "500MB",
+    "publisher": "西安电子科技大学",
+    "publish_year": 2017,
+    "license": "公开学术研究",
+    "download_url": "https://github.com/TianwenZhang0825/SSDD",
+    "paper_url": "https://arxiv.org/abs/2104.08385",
+    "project_url": "https://github.com/TianwenZhang0825/SSDD"
+  },
+  {
+    "name": "LEVIR-CD",
+    "description": "大型建筑变化检测数据集，637 张双时相图像，像素级变化标注",
+    "task_types": ["变化检测"],
+    "data_modality": "光学",
+    "domain": "CV",
+    "image_count": 637,
+    "storage_size": "8GB",
+    "publisher": "武汉大学",
+    "publish_year": 2020,
+    "license": "公开学术研究",
+    "download_url": "https://justchenhao.github.io/LEVIR/",
+    "paper_url": "https://arxiv.org/abs/2007.13541",
+    "project_url": "https://justchenhao.github.io/LEVIR/",
+    "doi": "10.1016/j.isprsjprs.2020.09.013"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "示例数据集名称",
+    "description": "一句话描述该数据集的内容、规模和特点",
+    "task_types": ["图像分类"],
+    "data_modality": "光学",
+    "domain": "CV",
+    "image_count": 10000,
+    "storage_size": "5GB",
+    "publisher": "发布机构",
+    "publish_year": 2024,
+    "license": "公开学术研究",
+    "download_url": "https://example.com/download",
+    "paper_url": "https://arxiv.org/abs/xxxx.xxxxx",
+    "project_url": "https://github.com/xxx/xxx",
+    "doi": "10.xxxx/xxxxx",
+    "sensor_name": null,
+    "spatial_resolution": null,
+    "spectral_bands": null,
+    "_review": {
+      "status": "pending",
+      "note": "用户审查时填写：approved / rejected / edit",
+      "source": "Agent 采集来源（如论文标题、Awesome 列表 URL 等）",
+      "collected_at": "2026-05-03"
+    }
+  }
+]

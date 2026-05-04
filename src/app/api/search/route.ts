@@ -1,5 +1,5 @@
 // 搜索和筛选 API
-import { createServerClient } from '@/../lib/supabase';
+import { createServerClient } from '@/lib/supabase';
 import { NextRequest, NextResponse } from 'next/server';
 import { checkRateLimit, getIdentifier } from '@/lib/rateLimit';
 import {

@@ -7,7 +7,8 @@ docs/
 ├── README.md                    # 本文档
 ├── datasets-top20.md            # 20 个经典遥感数据集清单
 └── workflows/
-    └── data-verification.md     # 数据验证流程
+    ├── data-verification.md     # 数据验证流程
+    └── data-management.md       # 数据集管理（采集→审查→导入）
 
 knowledge/
 └── LESSONS.md                   # 经验教训（按类别组织）
@@ -25,6 +26,7 @@ knowledge/
 |------|------|
 | [datasets-top20.md](./datasets-top20.md) | 已收录的 20 个数据集一览表，含论文和下载链接 |
 | [workflows/data-verification.md](./workflows/data-verification.md) | 新增数据集时的链接验证流程和检查清单 |
+| [workflows/data-management.md](./workflows/data-management.md) | 数据集管理：采集→审查→导入三阶段工作流 |
 
 ### knowledge/
 

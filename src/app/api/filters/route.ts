@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // 获取所有任务类型和数据模态（用于筛选下拉框）
-import { createServerClient } from '@/../lib/supabase';
+import { createServerClient } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
