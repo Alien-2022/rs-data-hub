@@ -39,6 +39,3 @@ scripts/*_report.json
 # AI 辅助文件（不上传 GitHub）
 .agent/
 memory/
-
-# 个人工作简报
-SUMMARY-*.md

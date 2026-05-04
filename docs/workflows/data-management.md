@@ -34,7 +34,7 @@ Agent 执行步骤：
 
 字段规范参考 `scripts/datasets.json`，其中：
 - `task_types`：仅限 图像分类 / 目标检测 / 语义分割 / 变化检测 / 实例分割
-- `data_modality`：仅限 光学 / SAR / 多光谱 / 高光谱 / LiDAR
+- `data_modality`：仅限 光学 / SAR / 多光谱 / 高光谱 / LiDAR / 热红外
 - `_review.source`：记录采集来源（论文标题、Awesome 列表 URL 等）
 
 ## 阶段 2: 用户审查
