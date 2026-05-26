@@ -148,6 +148,11 @@ export default function Home() {
 
         {/* 页脚 */}
         <footer className="text-center text-gray-500 text-xs sm:text-sm pt-6 sm:pt-8 border-t border-gray-200">
+          <div className="flex justify-center gap-4 mb-4">
+            <Link href="/privacy" className="text-gray-600 hover:text-blue-600 hover:underline">隐私政策</Link>
+            <Link href="/terms" className="text-gray-600 hover:text-blue-600 hover:underline">服务条款</Link>
+            <Link href="/about" className="text-gray-600 hover:text-blue-600 hover:underline">关于我们</Link>
+          </div>
           <p>© 2026 遥感数据集搜索引擎 · 为学术研究者服务</p>
         </footer>
       </div>
