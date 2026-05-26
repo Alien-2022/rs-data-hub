@@ -43,7 +43,7 @@ export default function TermsPage() {
               <strong>最后更新日期：</strong>2026 年 5 月 26 日
             </p>
             <p className="text-gray-600">
-              欢迎使用遥感数据集搜索引擎（以下简称"本网站"）。在使用本网站之前，请仔细阅读以下服务条款。访问或使用本网站即表示您同意遵守这些条款。
+              欢迎使用遥感数据集搜索引擎（以下简称&quot;本网站&quot;）。在使用本网站之前，请仔细阅读以下服务条款。访问或使用本网站即表示您同意遵守这些条款。
             </p>
           </section>
 
@@ -75,7 +75,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">4. 免责声明</h2>
             <p className="text-gray-600 mb-4">
-              本网站按"现状"提供服务，我们不对以下情况承担责任：
+              本网站按&ldquo;现状&rdquo;提供服务，我们不对以下情况承担责任：
             </p>
             <ul className="list-disc list-inside text-gray-600 space-y-2 ml-4">
               <li>数据集信息的准确性、完整性或时效性</li>

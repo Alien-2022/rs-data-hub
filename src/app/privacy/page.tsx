@@ -43,7 +43,7 @@ export default function PrivacyPage() {
               <strong>最后更新日期：</strong>2026 年 5 月 26 日
             </p>
             <p className="text-gray-600">
-              欢迎访问遥感数据集搜索引擎（以下简称"本网站"）。本网站致力于为遥感领域的研究者提供数据集检索服务。我们非常重视您的隐私保护，本隐私政策旨在说明我们如何处理信息。
+              欢迎访问遥感数据集搜索引擎（以下简称&ldquo;本网站&rdquo;）。本网站致力于为遥感领域的研究者提供数据集检索服务。我们非常重视您的隐私保护，本隐私政策旨在说明我们如何处理信息。
             </p>
           </section>
 
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mb-4">7. 隐私政策更新</h2>
             <p className="text-gray-600">
-              我们可能会不定期更新本隐私政策。更新后的政策将在本页面发布，并更新"最后更新日期"。我们建议您定期查看本页面以了解最新的隐私保护信息。
+              我们可能会不定期更新本隐私政策。更新后的政策将在本页面发布，并更新&ldquo;最后更新日期&rdquo;。我们建议您定期查看本页面以了解最新的隐私保护信息。
             </p>
           </section>
 
