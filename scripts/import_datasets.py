@@ -345,7 +345,8 @@ def main():
                 'statistics': stats
             }
             
-            report_file = f"import_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            os.makedirs('scripts/output', exist_ok=True)
+            report_file = f"scripts/output/import_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
             with open(report_file, 'w', encoding='utf-8') as f:
                 json.dump(report, f, indent=2, ensure_ascii=False)
             

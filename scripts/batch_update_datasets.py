@@ -158,7 +158,7 @@ class BatchUpdater:
             print(f"\n💡 当前为预览模式，未执行实际更新")
             print(f"   使用 --execute 参数执行更新")
     
-    def generate_report(self, output_file: str = 'batch_update_report.json') -> None:
+    def generate_report(self, output_file: str = 'scripts/output/batch_update_report.json') -> None:
         """生成更新报告"""
         report = {
             'summary': {
@@ -170,6 +170,7 @@ class BatchUpdater:
             'changes': self.changes,
         }
         
+        os.makedirs(os.path.dirname(os.path.abspath(output_file)), exist_ok=True)
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
         
@@ -183,7 +184,7 @@ def main():
     parser.add_argument('--execute', action='store_true', help='执行更新')
     parser.add_argument('--input', type=str, default='datasets.json',
                        help='标准化数据 JSON 文件')
-    parser.add_argument('--report', type=str, default='batch_update_report.json',
+    parser.add_argument('--report', type=str, default='scripts/output/batch_update_report.json',
                        help='报告输出文件名')
     
     args = parser.parse_args()

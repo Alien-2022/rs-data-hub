@@ -27,6 +27,7 @@
 
 import argparse
 import json
+import os
 import requests
 import time
 from datetime import datetime
@@ -163,6 +164,7 @@ def load_datasets(input_file: str) -> List[Dict]:
 
 def save_report(results: List[Dict], output_file: str, format: str = 'json'):
     """保存验证报告"""
+    os.makedirs(os.path.dirname(os.path.abspath(output_file)), exist_ok=True)
     if format == 'json':
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
@@ -221,7 +223,7 @@ def main():
     parser = argparse.ArgumentParser(description='遥感数据集链接验证工具')
     parser.add_argument('--url', type=str, help='验证单个链接')
     parser.add_argument('--input', type=str, help='输入 JSON 文件 (数据集列表)')
-    parser.add_argument('--output', type=str, default='verification_report.json', help='输出文件路径')
+    parser.add_argument('--output', type=str, default='scripts/output/verification_report.json', help='输出文件路径')
     parser.add_argument('--format', type=str, choices=['json', 'markdown'], default='json', help='输出格式')
     parser.add_argument('--timeout', type=int, default=DEFAULT_TIMEOUT, help='请求超时时间 (秒)')
     parser.add_argument('--workers', type=int, default=MAX_WORKERS, help='并发线程数')

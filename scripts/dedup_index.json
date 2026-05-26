@@ -1,0 +1,271 @@
+{
+  "exported_at": "2026-05-04T02:55:00.363950+00:00",
+  "count": 22,
+  "datasets": [
+    {
+      "name": "DIOR",
+      "download_url": "https://gcheng-nwpu.github.io/",
+      "doi": "10.1016/j.isprsjprs.2020.03.009",
+      "publisher": "西北工业大学",
+      "publish_year": 2020,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 23463
+    },
+    {
+      "name": "DOTA v2.0",
+      "download_url": "https://captain-whu.github.io/DOTA/dataset.html",
+      "doi": null,
+      "publisher": "武汉大学 (LIESMARS)",
+      "publish_year": 2021,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 11268
+    },
+    {
+      "name": "EuroSAT",
+      "download_url": "https://github.com/phelber/EuroSAT",
+      "doi": "10.1109/JSTARS.2019.2918242",
+      "publisher": "德国海德堡大学",
+      "publish_year": 2019,
+      "task_types": [
+        "图像分类"
+      ],
+      "data_modality": "多光谱",
+      "image_count": 27000
+    },
+    {
+      "name": "BigEarthNet v2.0",
+      "download_url": "https://bigearth.net/",
+      "doi": null,
+      "publisher": "柏林工业大学",
+      "publish_year": 2024,
+      "task_types": [
+        "图像分类"
+      ],
+      "data_modality": "多光谱",
+      "image_count": 549488
+    },
+    {
+      "name": "UAVid",
+      "download_url": "https://opendatalab.com/OpenDataLab/UAVid",
+      "doi": "10.1016/j.isprsjprs.2020.09.009",
+      "publisher": "代尔夫特理工大学",
+      "publish_year": 2020,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "多光谱",
+      "image_count": 150
+    },
+    {
+      "name": "OpenEarthMap",
+      "download_url": "https://open-earth-map.org/",
+      "doi": null,
+      "publisher": "东京大学等",
+      "publish_year": 2024,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 8000
+    },
+    {
+      "name": "AID",
+      "download_url": "https://captain-whu.github.io/AID/",
+      "doi": "10.1109/TGRS.2017.2685945",
+      "publisher": "武汉大学",
+      "publish_year": 2017,
+      "task_types": [
+        "图像分类"
+      ],
+      "data_modality": "光学",
+      "image_count": 10000
+    },
+    {
+      "name": "MLRSNet",
+      "download_url": "https://github.com/cugbrs/MLRSNet.git",
+      "doi": "10.1016/j.isprsjprs.2020.09.003",
+      "publisher": "西北工业大学",
+      "publish_year": 2020,
+      "task_types": [
+        "图像分类"
+      ],
+      "data_modality": "光学",
+      "image_count": 109161
+    },
+    {
+      "name": "FAIR1M",
+      "download_url": "https://www.noda.ac.cn/datasharing/datasetDetails/666fe818d67b985a5113eb26",
+      "doi": "10.1016/j.isprsjprs.2021.10.005",
+      "publisher": "北航等",
+      "publish_year": 2021,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 42796
+    },
+    {
+      "name": "MAR20",
+      "download_url": "https://gcheng-nwpu.github.io/#Datasets",
+      "doi": "10.11834/jrs.20222139",
+      "publisher": "西北工业大学",
+      "publish_year": 2022,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 3400
+    },
+    {
+      "name": "LEVIR-CD",
+      "download_url": "https://justchenhao.github.io/LEVIR/",
+      "doi": "10.1109/TGRS.2020.2961303",
+      "publisher": "武汉大学",
+      "publish_year": 2020,
+      "task_types": [
+        "变化检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 637
+    },
+    {
+      "name": "iSAID",
+      "download_url": "https://captain-whu.github.io/iSAID/",
+      "doi": "10.1109/CVPR.2019.00681",
+      "publisher": "武汉大学等",
+      "publish_year": 2019,
+      "task_types": [
+        "实例分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 2806
+    },
+    {
+      "name": "Potsdam",
+      "download_url": "https://modelscope.cn/datasets/OpenDataLab/ISPRS_Potsdam",
+      "doi": null,
+      "publisher": "ISPRS",
+      "publish_year": 2014,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 384
+    },
+    {
+      "name": "Vaihingen",
+      "download_url": "https://pan.baidu.com/s/109D3WLrLafsuYtLeerLiiA?pwd=mseg",
+      "doi": null,
+      "publisher": "ISPRS",
+      "publish_year": 2014,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 33
+    },
+    {
+      "name": "HRSC2016",
+      "download_url": "https://www.kaggle.com/datasets/guofeng/hrsc2016",
+      "doi": "10.1109/IGARSS.2016.7730041",
+      "publisher": "西北工业大学",
+      "publish_year": 2016,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 1070
+    },
+    {
+      "name": "WHU-CD",
+      "download_url": "http://gpcv.whu.edu.cn/data/building_dataset.html",
+      "doi": "10.1016/j.isprsjprs.2018.02.002",
+      "publisher": "武汉大学",
+      "publish_year": 2018,
+      "task_types": [
+        "变化检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 1
+    },
+    {
+      "name": "VDD",
+      "download_url": "https://huggingface.co/datasets/RussRobin/VDD",
+      "doi": null,
+      "publisher": "香港理工大学等",
+      "publish_year": 2023,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 10000
+    },
+    {
+      "name": "SSDD",
+      "download_url": "https://github.com/TianwenZhang0825/Official-SSDD",
+      "doi": "10.1109/JSTARS.2017.2789263",
+      "publisher": "西安电子科技大学",
+      "publish_year": 2017,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "SAR",
+      "image_count": 1163
+    },
+    {
+      "name": "NWPU-RESISC45",
+      "download_url": "https://www.modelscope.cn/datasets/timm/resisc45",
+      "doi": "10.1109/JSTARS.2017.2696777",
+      "publisher": "西北工业大学",
+      "publish_year": 2017,
+      "task_types": [
+        "图像分类"
+      ],
+      "data_modality": "光学",
+      "image_count": 31500
+    },
+    {
+      "name": "UDD",
+      "download_url": "https://github.com/MarcWong/UDD",
+      "doi": "10.1007/978-3-030-03398-9_30",
+      "publisher": "苏黎世联邦理工学院",
+      "publish_year": 2018,
+      "task_types": [
+        "语义分割"
+      ],
+      "data_modality": "光学",
+      "image_count": 5000
+    },
+    {
+      "name": "DOTA",
+      "download_url": "https://captain-whu.github.io/DOTA/dataset.html",
+      "doi": "10.1109/TPAMI.2019.2956443",
+      "publisher": "武汉大学 (LIESMARS)",
+      "publish_year": 2018,
+      "task_types": [
+        "目标检测"
+      ],
+      "data_modality": "光学",
+      "image_count": 188282
+    },
+    {
+      "name": "SEN12MS",
+      "download_url": "https://mediatum.ub.tum.de/1474000",
+      "doi": "10.1109/TGRS.2019.2903318",
+      "publisher": "慕尼黑工业大学",
+      "publish_year": 2019,
+      "task_types": [
+        "语义分割",
+        "图像分类"
+      ],
+      "data_modality": "多光谱",
+      "image_count": 180662
+    }
+  ]
+}

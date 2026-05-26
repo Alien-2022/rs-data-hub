@@ -32,9 +32,8 @@ next-env.d.ts
 # 测试
 coverage/
 
-# 脚本生成的报告
-import_report_*.json
-scripts/*_report.json
+# 脚本运行时产物（报告、查重索引、采集工作文件等）
+scripts/output/
 
 # AI 辅助文件（不上传 GitHub）
 .agent/
